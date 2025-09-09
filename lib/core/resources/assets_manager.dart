@@ -6,6 +6,11 @@ abstract class ImagesAssets{
   static const String mostRecentImg='$base/img_most_recent_card_img.png';
   static const String suraNumberBg='$base/sura_number_bg.png';
   static const String leftSuraDetailsImg='$base/img_left_corner.png';
+  static const String rightSuraDetailsImg='$base/img_right_corner.png';
+  static const String hadeathTapBackGround='$base/Background.png';
+  static const String hadithCardButtonImage='$base/Mosque-02 2.png';
+  static const String hadithCardBackgroundImage='$base/HadithCardBackGround 1.png';
+
 
 
 
