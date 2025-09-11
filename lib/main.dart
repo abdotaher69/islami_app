@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'config/theme/theme_manager.dart';
-import 'core/resources/colors_manager.dart';
 import 'core/routes_manger/routes_manager.dart';
 
 void main() {

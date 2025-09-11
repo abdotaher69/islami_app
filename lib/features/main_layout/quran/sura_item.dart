@@ -1,20 +1,22 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:islami_app/core/resources/constant_manager.dart';
+import 'package:islami_app/core/prefs_manager.dart';
 import 'package:islami_app/core/routes_manger/routes_manager.dart';
+import 'package:islami_app/features/main_layout/quran/most_recent_widget.dart';
 import 'package:islami_app/features/models/sura_model.dart';
 
 import '../../../core/resources/assets_manager.dart';
 
 class SuraItem extends StatelessWidget {
-  const SuraItem({super.key,required this.sura});
+  const SuraItem({super.key, required this.sura, required this.mostRecentKey});
   final SuraModel sura;
+  final GlobalKey<MostRecentWidgetState> mostRecentKey;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        Navigator.pushNamed(context, RouteManager.suraDetails,arguments: sura);
+      onTap: () {
+        PrefsManager.addSuraIndex(sura.index);
+        Navigator.pushNamed(context, RouteManager.suraDetails, arguments: SuraDetailsArguments(mostRecentKey: mostRecentKey, sura: sura));
       },
 
       child: Container(
@@ -26,7 +28,7 @@ class SuraItem extends StatelessWidget {
               children: [
                 Image.asset(ImagesAssets.suraNumberBg),
                 Text(
-                  "${sura.index}",
+                  sura.index,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 24,
@@ -35,9 +37,7 @@ class SuraItem extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
-              width: 10,
-            ),
+            SizedBox(width: 10),
             Column(
               children: [
                 Text(
@@ -49,7 +49,7 @@ class SuraItem extends StatelessWidget {
                   ),
                 ),
                 Text(
-                sura.suraVerses,
+                  sura.suraVerses,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 14,
@@ -59,10 +59,23 @@ class SuraItem extends StatelessWidget {
               ],
             ),
             Spacer(),
-            Text(sura.suraNameAr,style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold,color: Colors.white))
+            Text(
+              sura.suraNameAr,
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
           ],
         ),
       ),
     );
   }
+}
+
+class SuraDetailsArguments {
+  final SuraModel sura;
+  final GlobalKey<MostRecentWidgetState> mostRecentKey;
+  const SuraDetailsArguments({required this.mostRecentKey, required this.sura});
 }

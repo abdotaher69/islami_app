@@ -21,6 +21,6 @@ class VerseItem extends StatelessWidget {
           color: ColorsManager.gold,
         ),
       ),
-    );;
+    );
   }
 }
