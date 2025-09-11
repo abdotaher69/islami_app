@@ -78,7 +78,7 @@ class _HadithItemState extends State<HadithItem> {
   }
 
   void loadHadithFile(int index) async {
-    String filePath = 'assets/files/Hadeeth/h${index}.txt';
+    String filePath = 'assets/files/Hadeeth/h$index.txt';
     String content = await rootBundle.loadString(filePath);
     List<String> hadithLines = content.trim().split('\n');
     String title = hadithLines[0];

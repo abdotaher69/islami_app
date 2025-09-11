@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/core/extentions/context_ex.dart';
 import 'package:islami_app/core/resources/colors_manager.dart';
+import 'package:islami_app/features/main_layout/quran/most_recent_widget.dart';
 import 'package:islami_app/features/main_layout/quran/sura_item.dart';
 import 'package:islami_app/features/models/sura_model.dart';
 
 import '../../../core/resources/assets_manager.dart';
-import 'most_recent_sura_item.dart';
 
 class Quran extends StatefulWidget {
   const Quran({super.key});
@@ -16,6 +15,7 @@ class Quran extends StatefulWidget {
 
 class _QuranState extends State<Quran> {
   List<SuraModel> searchedList = [];
+GlobalKey <MostRecentWidgetState> mostRecentKey=GlobalKey<MostRecentWidgetState>();
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -67,24 +67,10 @@ class _QuranState extends State<Quran> {
               ),
             ),
             SizedBox(height: 20),
-            Text(
-              'Sura name',
-              style: TextStyle(
-                color: ColorsManager.ofWhite,
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 10),
-            SizedBox(
-              height: context.getHeight * 0.18,
-              child: ListView.separated(
-                itemBuilder: (context, index) => MostRecentSuraItem(),
-                separatorBuilder: (context, index) => SizedBox(width: 10),
-                itemCount: 10,
-                scrollDirection: Axis.horizontal,
-              ),
-            ),
+         
+                        MostRecentWidget(key: mostRecentKey,),
+         
+          
             SizedBox(height: 10),
             Text(
               'Sura List',
@@ -100,6 +86,7 @@ class _QuranState extends State<Quran> {
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) => SuraItem(
+                mostRecentKey:mostRecentKey ,
                 sura: searchedList.isEmpty
                     ? SuraModel.suras[index]
                     : searchedList[index],

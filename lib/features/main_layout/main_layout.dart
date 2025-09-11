@@ -10,7 +10,7 @@ import 'package:islami_app/features/main_layout/time/time.dart';
 import 'hades/hades.dart';
 
 class MainLayout extends StatefulWidget {
-  MainLayout({super.key});
+  const MainLayout({super.key});
 
   @override
   State<MainLayout> createState() => _MainLayoutState();
