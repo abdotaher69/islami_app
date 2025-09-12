@@ -95,7 +95,7 @@ class _SuraDetailsState extends State<SuraDetails> {
         verses.removeAt(i);
         continue;
       }
-      verses[i] = "${verses[i]} \[${i + 1}\] ";
+      verses[i] = "${verses[i]} [${i + 1}] ";
     }
 
     suraVerses = verses;
