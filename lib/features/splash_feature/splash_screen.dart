@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void navigateToMainLayout() {
     Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, RouteManager.mainLayout);
+      Navigator.pushReplacementNamed(context, RouteManager.onBoardingScreen);
     });  }
 
   @override

@@ -15,6 +15,11 @@ abstract class ImagesAssets {
   static const String sebhaBody = '$base/SebhaBody 1.png';
   static const String sebha = '$base/Sebha (2).png';
   static const String sebhaIndicator = '$base/sebhaIndicator.png';
+   static const String frame1 = "assets/images/frame1.png";
+  static const String frame2 = "assets/images/frame2.png";
+  static const String frame3 = "assets/images/frame3.png";
+  static const String frame4 = "assets/images/frame4.png";
+  static const String frame5 = "assets/images/frame5.png";
 }
 
 abstract class IconAssets {
