@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islami_app/core/resources/assets_manager.dart';
 import 'package:islami_app/core/resources/colors_manager.dart';
 import 'package:islami_app/core/routes_manger/routes_manager.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 import 'onboarding_pages.dart';
@@ -134,6 +135,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   GestureDetector(
                     onTap: () {
                       if (currentPage == pages.length - 1) {
+                        SharedPreferences.getInstance().then((prefs) {
+                          prefs.setBool('onBoardingSeen', true);
+                        });
                         Navigator.pushReplacementNamed(
                           context,
                           RouteManager.mainLayout,

@@ -4,7 +4,6 @@ import 'package:islami_app/core/resources/assets_manager.dart';
 import 'package:islami_app/core/resources/colors_manager.dart';
 import 'package:islami_app/features/main_layout/quran/sura_item.dart';
 import 'package:islami_app/features/main_layout/quran/verse_item.dart';
-import 'package:islami_app/features/models/sura_model.dart';
 
 class SuraDetails extends StatefulWidget {
   const SuraDetails({super.key});

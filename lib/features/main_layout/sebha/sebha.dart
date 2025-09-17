@@ -1,9 +1,7 @@
 import 'dart:math' as math;
 
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_app/core/resources/assets_manager.dart';
-import 'package:islami_app/features/main_layout/hades/hadith_item.dart';
 
 class Sebha extends StatefulWidget {
   const Sebha({super.key});
